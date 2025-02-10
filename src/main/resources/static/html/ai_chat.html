@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="-uDJGV0BAds3ujZCJ-8zSAs2bvM4hvoSnhKGc5FsXtM" />
+  <meta name="google-site-verification" content="Nh-v7rNYFg1WCtBY8PdKwHaJi7FVvCtzjKDDJg5z5Ao" />
+  <meta name="google-adsense-account" content="ca-pub-7447042069782745">
+  <title>AI Dialogue</title>
+  <link rel="stylesheet" href="/css/ai_chat.css">
+  <script src="/webjars/sockjs-client/1.5.1/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/2.3.4/stomp.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7447042069782745"
+          crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="chat-wrapper">
+  <div class="chat-header">
+    <h1>AI Dialogue Studio</h1>
+  </div>
+
+  <div id="chat-output" class="message-container"></div>
+
+  <div class="chat-controls">
+    <div class="model-controls">
+      <div class="model-config">
+        <input type="text" id="model1-personality" placeholder="모델1 성격 설정">
+        <button id="set-model1-personality" class="ds-button">설정</button>
+      </div>
+      <div class="model-config">
+        <input type="text" id="model2-personality" placeholder="모델2 성격 설정">
+        <button id="set-model2-personality" class="ds-button">설정</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <button id="start-chat-button" class="ds-button primary">대화 시작</button>
+      <button id="continue-chat-button" class="ds-button secondary">대화 계속</button>
+    </div>
+  </div>
+</div>
+<script src="/js/ai_chat.js"></script>
+</body>
+</html>

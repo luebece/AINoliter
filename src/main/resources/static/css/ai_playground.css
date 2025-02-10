@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background-color: #080808;
+    color: #00bcd4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#main-container {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #00bcd4;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.8);
+}
+
+#button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.playground-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 1.2rem;
+    color: #00bcd4;
+    background-color: transparent;
+    border: 2px solid #00bcd4;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.playground-button:hover {
+    background-color: #00bcd4;
+    color: #080808;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.9);
+}
+
+/* 기존 스타일 유지 */
+
+/* 구글 로그인 버튼 스타일 */
+.google-login-button {
+    display: inline-block;
+    margin-top: 20px; /* 버튼 간격 조정 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+.google-login-button div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-md */
+    padding: 0.5rem 1.5rem; /* px-6 py-2 */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #1f2937; /* text-gray-800 */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease; /* hover 효과 */
+}
+
+.google-login-button div:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-200 */
+}
+
+.google-login-button div:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.5); /* focus:ring-2 focus:ring-gray-500 */
+}
+
+.google-login-button svg {
+    height: 1.5rem; /* h-6 */
+    width: 1.5rem; /* w-6 */
+    margin-right: 0.5rem; /* mr-2 */
+}
+
+/* 설명서 버튼 스타일 */
+#manual-btn-container {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translate(calc(-50% - 200px), calc(-50% - 120px));
+    z-index: 1000;
+}
+
+.manual-button {
+    padding: 8px 16px;
+    background: rgba(0, 188, 212, 0.3);
+    border: 1px solid #00bcd4;
+    border-radius: 20px;
+    color: #00bcd4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.manual-button:hover {
+    background: rgba(0, 188, 212, 0.5);
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+/* 설명서 오버레이 스타일 */
+#manual-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+#manual-content {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #00bcd4;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: #fff;
+    line-height: 1.8;
+    position: relative;
+}
+
+#manual-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #00bcd4;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.manual-section {
+    margin-bottom: 25px;
+}
+
+.manual-section h2 {
+    color: #00bcd4;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.manual-section p {
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+.highlight {
+    color: #00bcd4;
+    font-weight: bold;
+}

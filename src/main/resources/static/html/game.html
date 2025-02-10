@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="-uDJGV0BAds3ujZCJ-8zSAs2bvM4hvoSnhKGc5FsXtM" />
+  <meta name="google-site-verification" content="Nh-v7rNYFg1WCtBY8PdKwHaJi7FVvCtzjKDDJg5z5Ao" />
+  <meta name="google-adsense-account" content="ca-pub-7447042069782745">
+  <title>Gemini Game</title>
+  <link rel="stylesheet" href="/css/yes.css">
+  <script src="/webjars/sockjs-client/1.5.1/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/2.3.4/stomp.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <script src="/js/yes.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7447042069782745"
+          crossorigin="anonymous"></script>
+  <script>
+    // 서버로부터 accessToken을 가져오는 함수
+    async function fetchAccessToken() {
+      try {
+        const response = await fetch('/api/get-access-token');
+        if (!response.ok) {
+          throw new Error('Failed to fetch access token');
+        }
+        const data = await response.json();
+        return data.accessToken;
+      } catch (error) {
+        console.error('Error fetching access token:', error);
+        return null;
+      }
+    }
+
+    // 페이지 로드 시 accessToken을 가져와서 처리
+    document.addEventListener('DOMContentLoaded', async function () {
+      const accessToken = await fetchAccessToken();
+
+      if (accessToken) {
+        console.log("accessToken from server (game.html):", accessToken);
+        sessionStorage.setItem("accessToken", accessToken); // 세션에 accessToken 저장
+        connect(); // accessToken이 null이 아닌 경우, connect() 함수 호출
+      } else {
+        console.error("accessToken is null or empty. Check server-side code. (game.html)");
+      }
+    });
+
+    function setMaxChoices() {
+      const max = document.getElementById('max-choices-input').value;
+      fetch(`/game/set-max-choices?max=${max}`, {
+        method: 'POST'
+      })
+              .then(response => response.text())
+              .then(data => alert(data))
+              .catch(error => console.error('Error:', error));
+    }
+  </script>
+</head>
+<body>
+<div id="container">
+  <div id="side-panel">
+    <div class="side-button-group">
+      <select id="model-select">
+        <option value="gemini-2.0-pro-exp-02-05">Gemini Flash</option>
+        <option value="gemini-exp-1206">Gemini 1206</option>
+      </select>
+    </div>
+    <div class="side-button-group">
+        <label for="max-choices-input">선택 횟수:</label>
+        <input type="number" id="max-choices-input" min="1" max="50" value="10">
+        <button id="set-max-choices-btn" class="setting-button">설정</button>
+    </div>
+    <div class="side-button-group">
+      <button id="show-log-button">전체 대화 기록</button>
+    </div>
+      <div id="log-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>전체 대화 기록</h2>
+            <span class="close-modal">&times;</span>
+          </div>
+          <div id="log-messages" class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+  <div id="game-container">
+    <button id="hamburger-button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div id="image-container">
+      <button id="start-game">게임 시작</button>
+      <div id="name-input-container" style="display: none;">
+        <label for="name-input">이름:</label> <input type="text" id="name-input" placeholder="이름을 입력하세요...">
+        <button id="name-submit">확인</button>
+      </div>
+    </div>
+    <!-- 로딩 애니메이션을 그림과 대화 영역 사이에 배치 -->
+    <div id="loading-container" style="display: none;">
+      <div id="loading-text">Loading</div>
+      <div id="loading-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <div id="loading-timer"></div>
+    </div>
+    <div id="choice-container" style="display: none">
+      <button class="choice-button"></button>
+      <button class="choice-button"></button>
+      <button class="choice-button"></button>
+    </div>
+    <div id="dialog-container"></div>
+  </div>
+</div>
+</body>
+</html>

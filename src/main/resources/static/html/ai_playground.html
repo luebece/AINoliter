@@ -1,0 +1,88 @@
+<!-- ai_playground.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="-uDJGV0BAds3ujZCJ-8zSAs2bvM4hvoSnhKGc5FsXtM" />
+    <meta name="google-site-verification" content="Nh-v7rNYFg1WCtBY8PdKwHaJi7FVvCtzjKDDJg5z5Ao" />
+    <meta name="google-adsense-account" content="ca-pub-7447042069782745">
+    <title>AI Playground</title>
+    <link rel="stylesheet" href="/css/ai_playground.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7447042069782745"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div id="main-container">
+    <h1>AI Playground</h1>
+    <div id="button-container">
+        <button onclick="openManual()" class="manual-button">📘 플레이 방법</button>
+        <a href="/chat" class="playground-button">채팅 시작하기</a>
+        <a href="/game" class="playground-button">게임 시작하기</a>
+        <a href="/ai_chat" class="playground-button">AI 대화 시켜보기</a>
+        <a href="/ai_novel" class="playground-button">AI 노벨 시작하기</a>
+
+<!--        <a href="/oauth2/authorization/google" class="google-login-button">-->
+<!--            <div class="flex items-center bg-white dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">-->
+<!--                <svg class="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 0 48 48">-->
+<!--                    <path d="M9.82727273,24 C9.82727273,22.4757333 10.0804318,21.0144 10.5322727,19.6437333 L2.62345455,13.6042667 C1.08206818,16.7338667 0.213636364,20.2602667 0.213636364,24 C0.213636364,27.7365333 1.081,31.2608 2.62025,34.3882667 L10.5247955,28.3370667 C10.0772273,26.9728 9.82727273,25.5168 9.82727273,24" fill="#FBBC05"/>-->
+<!--                    <path d="M23.7136364,10.1333333 C27.025,10.1333333 30.0159091,11.3066667 32.3659091,13.2266667 L39.2022727,6.4 C35.0363636,2.77333333 29.6954545,0.533333333 23.7136364,0.533333333 C14.4268636,0.533333333 6.44540909,5.84426667 2.62345455,13.6042667 L10.5322727,19.6437333 C12.3545909,14.112 17.5491591,10.1333333 23.7136364,10.1333333" fill="#EB4335"/>-->
+<!--                    <path d="M23.7136364,37.8666667 C17.5491591,37.8666667 12.3545909,33.888 10.5322727,28.3562667 L2.62345455,34.3946667 C6.44540909,42.1557333 14.4268636,47.4666667 23.7136364,47.4666667 C29.4455,47.4666667 34.9177955,45.4314667 39.0249545,41.6181333 L31.5177727,35.8144 C29.3995682,37.1488 26.7323182,37.8666667 23.7136364,37.8666667" fill="#34A853"/>-->
+<!--                    <path d="M46.1454545,24 C46.1454545,22.6133333 45.9318182,21.12 45.6113636,19.7333333 L23.7136364,19.7333333 L23.7136364,28.8 L36.3181818,28.8 C35.6879545,31.8912 33.9724545,34.2677333 31.5177727,35.8144 L39.0249545,41.6181333 C43.3393409,37.6138667 46.1454545,31.6490667 46.1454545,24" fill="#4285F4"/>-->
+<!--                </svg>-->
+<!--                <span>Continue with Google</span>-->
+<!--            </div>-->
+<!--        </a>-->
+    </div>
+</div>
+
+<div id="manual-overlay">
+    <div id="manual-content">
+        <button id="manual-close" onclick="closeManual()">&times;</button>
+        <div class="manual-section">
+            <h2>🎮 플레이 방법</h2>
+            <p><span class="highlight">- 로그인 불필요:</span> 모든 서비스는 로그인이 필요없으니 그냥 클릭하고 플레이 하시면 됩니다</p>
+
+            <h2>💬 채팅 기능</h2>
+            <p><span class="highlight">- 모델 선택:</span> 2가지 AI 모델 중 선택 가능하며, 모델 변경 시 이전 대화 기록은 초기화됩니다.</p>
+
+            <h2>🕹️ 게임 기능</h2>
+            <p><span class="highlight">- 햄버거 메뉴:</span> 모델 선택, 선택지 횟수 설정(기본 10회), 대화 기록 확인 가능</p>
+            <p><span class="highlight">- 선택지 횟수:</span> 실제 플레이 횟수 = 설정값 + 2 (게임 시작/이름 입력 포함)</p>
+            <p><span class="highlight">- 추천 설정:</span> 짧게 10회, 보통 20회, 장시간 50회</p>
+            <p><span class="highlight">- 참고:</span> 로딩이 오래 걸릴 경우(30초 이상) 이는 api 오류이니, 선택지 버튼을 다시 한번 클릭</p>
+
+            <h2>🤖 AI 대화</h2>
+            <p><span class="highlight">- 설정 방법:</span> 모델1과 모델2의 성격을 각각 설정</p>
+            <p><span class="highlight">- 진행 방식:</span> 대화 시작/대화 계속 버튼 클릭 시 모델1 → 모델2 순차적 대화 진행</p>
+
+            <h2>📖 AI 노벨</h2>
+            <p><span class="highlight">- 장르 선택:</span> 초기 장르 선택 시 AI가 스토리 시작</p>
+            <p><span class="highlight">- 자유 모드:</span> 장르 미선택 시 일반 AI 채팅으로 사용 가능</p>
+            <p><span class="highlight">- 작동 방식:</span> 사용자 입력 → AI 스토리 생성 반복</p>
+
+            <p class="highlight" style="text-align: center; margin-top: 20px;">🎮 AI Playground에서 즐거운 시간 보내세요~ 🚀</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openManual() {
+        document.getElementById('manual-overlay').style.display = 'flex';
+    }
+
+    function closeManual() {
+        document.getElementById('manual-overlay').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const overlay = document.getElementById('manual-overlay');
+        if (event.target == overlay) {
+            closeManual();
+        }
+    }
+</script>
+
+</body>
+</html>

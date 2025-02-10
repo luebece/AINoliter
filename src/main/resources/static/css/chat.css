@@ -1,0 +1,307 @@
+/* 개선된 chat.css - AI Novel 스타일 적용 */
+:root {
+    --primary-bg: #0A0A0F;
+    --secondary-bg: #16161E;
+    --accent-color: #00D1B2;
+    --text-primary: #F0F0F5;
+    --text-secondary: #8C8C9E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+/* 설정 패널 스타일 */
+.config-panel {
+    background: var(--secondary-bg);
+    padding: 20px;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.chat-panel {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    background: var(--primary-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.message-container {
+    max-width: 100%; /* 컨테이너 폭 제한 해제 */
+    padding: 14px 20px;
+    border-radius: 12px;
+    position: relative;
+    line-height: 1.6;
+    animation: messageSlide 0.3s ease-out;
+    margin: 12px 0;
+}
+
+@keyframes messageSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 사용자 말풍선 */
+.user-message {
+    background: rgba(0,209,178,0.08);
+    color: var(--accent-color);
+    border-left: 3px solid var(--accent-color);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 12px 0;
+    max-width: 85%; /* 적절한 폭 조정 */
+    margin-left: auto;
+    margin-right: 0; /* 오른쪽 여백 제거 */
+    width: fit-content; /* 내용물에 맞게 조정 */
+}
+
+
+.user-message::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid var(--secondary-bg);
+}
+
+.gemini-message {
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--accent-color);
+    margin-left: 15px;
+}
+
+.gemini-message::before {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    font-size: 24px;
+    opacity: 0.6;
+}
+
+
+.chat-input-area {
+    position: sticky;
+    bottom: 0;
+    background: var(--secondary-bg);
+    z-index: 10; /* 메시지 위에 표시 */
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 20px 25px;
+    margin-top: -60px; /* 자연스러운 여백 조정 */
+}
+
+#message-input-container {
+    display: flex;
+    gap: 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.panel-header {
+    margin-bottom: 25px;
+}
+
+.app-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+/* 모델 선택 섹션 */
+.model-section {
+    margin-top: 25px;
+}
+
+.section-title {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+#model-select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+/* 메인 채팅 영역 */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* 전체 뷰포트 높이 사용 */
+}
+
+.story-panel {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    background: var(--primary-bg);
+}
+
+/* 메시지 스타일 */
+.user-message {
+    background: rgba(0,209,178,0.08);
+    color: var(--accent-color);
+    padding: 14px 18px;
+    border-left: 3px solid var(--accent-color);
+    border-radius: 6px;
+    margin: 12px 0;
+    max-width: 75%;
+    margin-left: auto;
+}
+
+.gemini-message {
+    background: rgba(255,255,255,0.03);
+    padding: 14px 18px;
+    border-left: 3px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    margin: 12px 0;
+    max-width: 75%;
+}
+
+/* 입력 영역 */
+.input-wrapper {
+    padding: 20px;
+    background: var(--secondary-bg);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.input-group {
+    display: flex;
+    gap: 12px;
+}
+
+#message-input {
+    flex: 1;
+    padding: 14px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 15px;
+}
+
+#message-input:focus {
+    outline: 2px solid var(--accent-color);
+}
+
+#send-button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.model-section select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: var(--text-primary);
+}
+
+#send-button:hover {
+    opacity: 0.9;
+}
+
+#loading-container {
+    display: none; /* 초기 상태 숨김 */
+    height: 40px;
+    margin-bottom: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 로딩 표시 클래스 추가 */
+#loading-container.visible {
+    display: flex; /* 표시될 때만 flex로 변경 */
+}
+
+
+
+.loading-dots span {
+    animation: pulse 1.4s infinite;
+    opacity: 0;
+    font-size: 24px;
+    color: var(--accent-color);
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+
+    .message-container {
+        max-width: 85%;
+        margin: 0 10px;
+    }
+
+    .gemini-message::before {
+        display: none;
+    }
+
+    .app-container {
+        grid-template-columns: 1fr;
+    }
+
+    .config-panel {
+        display: none;
+    }
+
+    .gemini-message {
+        max-width: 90%;
+    }
+
+    .user-message {
+        max-width: 90%;
+        margin-right: 10px;
+    }
+
+    .chat-input-area {
+        padding: 15px;
+    }
+
+    #message-input {
+        font-size: 14px;
+    }
+}

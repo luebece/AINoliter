@@ -1,0 +1,232 @@
+/* ai_chat.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #1890ff;
+    --secondary-blue: #40a9ff;
+    --primary-purple: #722ed1;
+    --background: #0f1624;
+    --surface: #1a2233;
+    --text-primary: #e5e9f0;
+    --text-secondary: #8c99ad;
+    --border: #2d3746;
+    --hover-overlay: rgba(255,255,255,0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    height: 100vh;
+    display: flex;
+}
+
+.chat-wrapper {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.chat-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(24,144,255,0.1) 0%, rgba(114,46,209,0.1) 100%);
+}
+
+.chat-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+
+
+.model-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.model-config {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.model-config input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.message-container {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    position: relative;
+    line-height: 1.6;
+    animation: messageAppear 0.3s ease-out;
+}
+
+.gemini1-message {
+    background: var(--primary-blue);
+    align-self: flex-start;
+    border-top-left-radius: 4px;
+}
+
+.gemini2-message {
+    background: var(--primary-purple);
+    align-self: flex-end;
+    border-top-right-radius: 4px;
+}
+
+.message-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.model-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.2);
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.chat-controls {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.control-group {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.ds-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ds-button.primary {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.ds-button.secondary {
+    background: var(--primary-purple);
+    color: white;
+}
+
+.ds-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.loading-container {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+}
+
+.ds-spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 스크롤바 스타일링 */
+.message-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message-container::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+
+.message-container::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .model-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .message-bubble {
+        max-width: 85%;
+        padding: 0.75rem;
+    }
+
+    .chat-header {
+        padding: 1rem;
+    }
+
+    .ds-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "durable-gizmo-447007-k4",
+  "private_key_id": "11bf59e57574960ed56f99c63eac5a34562c4be6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCm+WV8kFarScD3\n0xzbs6npgb1mxp/BqRWaHwFX9pIPROoQXPRMeIxjIoMLsOBcSbHvMrYCh6vNAo9X\nVWeWw5A8JPnhcZx6CxBM/90ASIQ+B0hEoiKqNmUYztyQ95g7UWBs8wyKd96cO3r2\nAA0gFZsjUW7XrCRIPrRQ191rq3AcsJYwO3HkDnExgRolmC3j8oOwja/3JGQJSwsD\nKF+c1a8P4TigRnmwV38TDAJpORguRk40F5ltw6yGkkCl41npr2sxMYOjTvtcZPUR\n5h1LzA6/yIhvdbPJuc1fC1GZ1wQYePtQt0JPppwIlrN59uRepkOeZHQy80Ke+bqn\n0MoxEx3HAgMBAAECggEAE/VEea6hBWlT7OtpjCM+AIC2/GVqbBIDWIAzP2nkDHou\nxhTuSIOyOBlEc63JK47Ne2ti0QuZb/BJ5OT69Ezc3SuISLe1Pes7oBCHQITqdaWW\nMEn2/cRxshTrzVIi+pgf//XPPm/UhnUfne7koryiZgbSSmozjgUctXsP5tI/nNYX\nCvrqAHdEMSY9Wceo+Dhnfjrm68ty+t7d+cPyuxozcdHtGgZRhpyjSJP6FmYL2sjU\nuS+4WvixdcGza6RQ1zC8xHCda162DZQJHK0heEyHBOz9D8GiOCayIR55IDSrhFJz\nWLIrWOppoMjQdae/JobM71hQZ1/cWx4li/oe50JSuQKBgQDhFsaA67QB4lgN/YmI\niz17XwRBhq3S4Y+w9T7sMQmDH/pECWanXE6P5hzDwQ0ED9Y29uHS2NhD4U4u6E53\nxyHruEbj4fi/g267iVGosq80Ne6paLUGnLZzXOc7WkR6Q3ut526wzRJIfD8LwaKr\nnVyCs0ieB00wr/MMQcPf9sBg3wKBgQC954oNonHYUDVV0SCtW2hK4jLwPQuQLkGs\nF/J8ryt/hBQGH7VvDFh7L8TrJZggk1hVAQgJ2Plyd7RaPyJjlLOz0fUaRgv0TRqs\nWSteHc+BdDNAeHkj8Ur6Mjn5gBLIzpGh0b69CYo6DR7VLds/AR0yCTch+3gyKDMv\nrWLA16NYGQKBgQDEzxw751vadeVWPkR+LnlQoRDglnjwNadlK9qbvHi7vT8fNDUc\nytoqeiLWirrtvUcpgg6MRGw8Vgj9fMP3eRdQuyzI3nGYSryMn5HV9n65IRsP52y5\nXlctYaMRQ2kymkTPFtezIWwGExUxG1s3wPz9jvNEsc+tbXsPUYWKE3+8cwKBgCjK\nXCfzlZqOF/a39dnmwW8cSS67Hgm5Ndf+SNKpWaGJQDfUhcc1kqfbKeQMbjHJFHcl\nwpFC7sm8lpuv5fYX0cW1On2LQDQYf7s3aA5OPu0ihYO6nOKwiJdXRIaoEODbJgLp\nJ5w5OVygxtepgud0mM3Plu0Qs8+qPNxn1MdxSh+5AoGAb33DS4PzaG5iGdQ4V+1H\nDj/ff93tKux6XaRlJPOb4TwQdlBSRBXkyqSAEvfAFyKC2xKYWOrhK2bD74lpPXHR\nv3vsPB9ischd2KBOVbi5iPD8o/DWTSqUwwP/wA9hVUbGH5WMI0lDn5AD6de29EBt\nX5ODZRNHkkgvBhuy8LtHY5I=\n-----END PRIVATE KEY-----\n",
+  "client_email": "gemini@durable-gizmo-447007-k4.iam.gserviceaccount.com",
+  "client_id": "105945770657832729046",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gemini%40durable-gizmo-447007-k4.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

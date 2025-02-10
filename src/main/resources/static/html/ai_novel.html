@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="-uDJGV0BAds3ujZCJ-8zSAs2bvM4hvoSnhKGc5FsXtM" />
+    <meta name="google-site-verification" content="Nh-v7rNYFg1WCtBY8PdKwHaJi7FVvCtzjKDDJg5z5Ao" />
+    <meta name="google-adsense-account" content="ca-pub-7447042069782745">
+    <title>AI Novel</title>
+    <link rel="stylesheet" href="/css/ai_novel.css">
+    <script src="/webjars/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.4/stomp.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7447042069782745"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="app-container">
+    <!-- 왼쪽 설정 패널 -->
+    <aside class="config-panel">
+        <div class="panel-header">
+            <h1 class="app-title">AI Novel</h1>
+            <div class="divider"></div>
+        </div>
+
+        <!-- 장르 선택 섹션 -->
+        <section class="config-section">
+            <h2 class="section-title">장르 선택</h2>
+            <div id="topic-selection" class="genre-buttons">
+                <button class="topic-button" data-topic="판타지">판타지</button>
+                <button class="topic-button" data-topic="공포">공포</button>
+                <button class="topic-button" data-topic="로맨스">로맨스</button>
+                <button class="topic-button" data-topic="SF">SF</button>
+                <button class="topic-button" data-topic="추리">추리</button>
+                <button class="topic-button" data-topic="무협">무협</button>
+            </div>
+        </section>
+    </aside>
+
+    <!-- 메인 콘텐츠 영역 -->
+    <main class="main-content">
+        <!-- 스토리 표시 영역 -->
+        <div class="story-panel">
+            <div id="story-output" class="story-content"></div>
+        </div>
+
+        <!-- 입력 및 로딩 영역 -->
+        <div class="input-wrapper">
+            <!-- 로딩 인디케이터 -->
+            <div id="loading-container" class="loading-section">
+                <div class="loading-dots">
+                    <span>.</span><span>.</span><span>.</span>
+                </div>
+                <div class="countdown"></div>
+            </div>
+
+            <!-- 입력 컨테이너 -->
+            <div id="input-container" class="input-group">
+                <input type="text" id="user-input" placeholder="이야기를 입력하세요...">
+                <button id="send-button" class="send-btn">전송</button>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="/js/ai_novel.js"></script>
+</body>
+</html>
