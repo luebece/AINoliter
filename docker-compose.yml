@@ -1,3 +1,4 @@
+version: '3'
 services:
   webserver-java:
     container_name: webserver
