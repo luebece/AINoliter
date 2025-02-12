@@ -1,0 +1,6 @@
+services:
+  webserver-java:
+    container_name: webserver
+    build:
+      context: .
+      dockerfile: Dockerfile
